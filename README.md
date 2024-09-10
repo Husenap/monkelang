@@ -1,6 +1,6 @@
 # monkelang
 
-## monke also want do coding so monke need language to code monke code in
+## monke work coding want string language is "monkelang" give string monke do give "banana" monke done
 
 ## Language features
 
