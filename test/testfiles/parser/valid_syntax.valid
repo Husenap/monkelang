@@ -1,0 +1,19 @@
+// single line comment
+
+2+3; // this calculates 2+3
+
+monkey say
+this is a multiline comment
+here we should be able to add as much stuff as we want,
+even weird expressions like 2+3+
+and it should just work fine
+monkey do
+
+monkey say multiline comment on single line monkey do
+
+// This calculates 5+4
+5+4;
+
+1+3;
+// This calculates 1+3
+

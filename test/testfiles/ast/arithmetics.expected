@@ -1,0 +1,20 @@
+ExprStmt: 
+ BinOpExpr: +
+  IntegerExpr: 2
+  IntegerExpr: 3
+ExprStmt: 
+ BinOpExpr: -
+  BinOpExpr: -
+   IntegerExpr: 1
+   IntegerExpr: 2
+  IntegerExpr: 3
+ExprStmt: 
+ BinOpExpr: +
+  BinOpExpr: -
+   BinOpExpr: +
+    BinOpExpr: -
+     IntegerExpr: 4
+     IntegerExpr: 3
+    IntegerExpr: 2
+   IntegerExpr: 5
+  IntegerExpr: 1
