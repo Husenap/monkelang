@@ -15,8 +15,8 @@ monke has array of number a is [2, 5]
 
 ### Flow control
 ```
-if <cond> monke do <a> else monke do <b>
-while <cond> monke do <a>
+if <cond> monke do <a> else monke do <b> monke done
+while <cond> monke do <a> monke done
 ```
 
 ### String interpolation and I/O
@@ -27,15 +27,25 @@ monke say "you is {a} old"
 
 ### Function declaration
 ```
-monke do concat want string first and string second give string do give first plus second
+monke work <func_name> want <param [and params]> give <ret_type> monke do
+  <body>
+monke done
 ```
 
-### Example program
+### Example programs
 ```
-monke do max want number a and number b give number do
+monke work max want number a and number b give number monke do
   if a is greater than b monke do
     give a
   else monke do
     give b
+  monke done
+monke done
+```
+
+```
+monke work concat want string first and string second give string monke do
+  <body>
+monke done
 ```
 
