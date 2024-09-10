@@ -19,10 +19,20 @@ if <cond> monke do <a> else monke do <b> monke done
 while <cond> monke do <a> monke done
 ```
 
+```
+monke think bananas is greater than 5 monke do
+  monke say "too many bananas"
+monke think again bananas is 5 monke do
+  monke say "perfect amount of bananas"
+monke change mind
+  monke say "need more bananas"
+monke thinked
+```
+
 ### String interpolation and I/O
 ```
-monke read number a
-monke say "you is {a} old"
+monke want number age
+monke say "you is {age} old"
 ```
 
 ### Function declaration
