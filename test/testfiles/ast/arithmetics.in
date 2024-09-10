@@ -1,3 +1,16 @@
-2+3;
-1-2-3;
-4-3+2-5+1;
+2 is equal to 2
+2 is not equal to 2
+2 is less than 2
+2 is less than or equal to 2
+2 is greater than 2
+2 is greater than or equal to 2
+2 plus 3 minus 4
+1 plus 2 times 3
+2 == 2
+2 != 2
+2 < 2
+2 <= 2
+2 > 2
+2 >= 2
+2 + 3 - 4
+1 + 2 * 3

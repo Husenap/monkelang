@@ -15,26 +15,63 @@
 
 %}
  
-%option noyylineno noyywrap nounput noinput batch
+%option noyywrap nounput noinput batch
 %option c++ interactive outfile="Lexer.cpp"
 
-dseq            ([[:digit:]]+)
-integer         ({dseq})
+%x COMMENT
+
+number                    (([1-9][0-9]*)|0).?[0-9]*
+identifier                ([_a-zA-Z][-a-zA-Z0-9]*)
  
 %%
   ctx.loc.step();
+
+"monke"                   { tk(MONKE); }
+"has"                     { tk(HAS); }
+"want"                    { tk(WANT); }
+"say"                     { tk(SAY); }
+"work"                    { tk(WORK); }
+"do"                      { tk(DO); }
+"done"                    { tk(DONE); }
+"with"                    { tk(WITH); }
+"and"                     { tk(AND); }
+"give"                    { tk(GIVE); }
+"while"                   { tk(WHILE); }
+"monke think"             { tk(THINK); }
+"monke think again"       { tk(THINK_AGAIN); }
+"monke change mind"       { tk(CHANGE_MIND); }
+"monke thinked"           { tk(THINKED); }
+"is"                      { tk(IS); }
+
+"=="|"is equal to"                 { tk(EQ); }
+"!="|"is not equal to"             { tk(NEQ); }
+"<"|"is less than"                 { tk(LT); }
+"<="|"is less than or equal to"    { tk(LEQ); }
+">"|"is greater than"              { tk(GT); }
+">="|"is greater than or equal to" { tk(GEQ); }
+
+"+"|"plus"                { tk(PLUS); }
+"-"|"minus"               { tk(MINUS); }
+"*"|"times"               { tk(MUL); }
+"/"|"divided by"          { tk(DIV); }
+"%"|"modulo"              { tk(MOD); }
+
+"number"                  { tkv(TYPE, yytext); }
+"string"                  { tkv(TYPE, yytext); }
+"boolean"                 { tkv(TYPE, yytext); }
+
+{identifier}              { tkv(IDENTIFIER, yytext);  }
+{number}                  { tkv(NUMBER, strtod(yytext, nullptr));  }
  
-{integer}                 { tkv(NUMBER, strtoll(yytext, nullptr, 10)); }
-"+"                       { tk(PLUS); }
-"-"                       { tk(MINUS); }
-";"                       { tk(SEMICOLON); }
 "//".*                    { ctx.loc.columns(); ctx.loc.lines(); }
+"monke note"              { BEGIN(COMMENT); }
+<COMMENT>([^"monke noted"])*"monke noted" { BEGIN(INITIAL); }
+<COMMENT>.|\n             { }
 
-"monkey say"(.*[^"monkey do"]*)*"monkey do" { }
-
-[ \t]                     { ctx.loc.columns(); }
+[ \t\r\v]                 { ctx.loc.columns(); }
 [\n]                      { ctx.loc.lines(); }
 <<EOF>>                   { tk(END); }
+
 .                         { ctx.loc.columns();
                             ctx.loc.lines(); 
                             std::string str("Unrecognized char '");

@@ -1,0 +1,8 @@
+FuncDeclStmt: name:concat return:string
+  Params: 
+    IdDeclStmt: id:first type:string
+    IdDeclStmt: id:second type:string
+  Body: 
+    BlockStmt: 
+      IdDeclStmt: id:x type:number
+        NumberExpr: 42

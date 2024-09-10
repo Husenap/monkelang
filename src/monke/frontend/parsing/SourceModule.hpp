@@ -10,15 +10,13 @@ namespace monke {
 class SourceModule {
 public:
   void visit(AstVisitor& visitor) {
-    for (auto& stmt : statements) {
-      stmt->visit(visitor);
-    }
+    statement->visit(visitor);
   }
-  void fill(std::vector<std::unique_ptr<Stmt>> stmts) {
-    statements = std::move(stmts);
+  void fill(std::unique_ptr<Stmt> stmt) {
+    statement = std::move(stmt);
   }
 
 private:
-  std::vector<std::unique_ptr<Stmt>> statements;
+  std::unique_ptr<Stmt> statement;
 };
 } // namespace monke

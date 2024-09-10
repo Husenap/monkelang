@@ -15,6 +15,7 @@ AllowShortFunctionsOnASingleLine: Empty
 BreakBeforeTernaryOperators: true
 BinPackParameters: false
 BinPackArguments: false
+PackConstructorInitializers: NextLine
 AlignConsecutiveAssignments: true
 AlignConsecutiveDeclarations: true
 AlwaysBreakTemplateDeclarations: Yes
