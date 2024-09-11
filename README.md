@@ -4,8 +4,6 @@
 
 ## Language features
 
-This is WIP
-
 ### Variable declarations
 ```
 monke has number x is 42
@@ -14,11 +12,15 @@ monke has array of number a is [2, 5]
 ```
 
 ### Flow control
+
+#### While loop
 ```
-if <cond> monke do <a> else monke do <b> monke done
-while <cond> monke do <a> monke done
+while <cond> monke do
+    <body>
+monke done
 ```
 
+#### If statement
 ```
 monke think bananas is greater than 5 monke do
   monke say "too many bananas"
@@ -37,25 +39,37 @@ monke say "you is {age} old"
 
 ### Function declaration
 ```
-monke work <func_name> want <param [and params]> give <ret_type> monke do
+monke work <func_name> [want <param {and param}>] give <return_type> monke do
   <body>
 monke done
 ```
 
+### Comments
+```
+// Supports standard comments
+```
+```
+monke note
+also supports
+multiline comments
+monke noted
+```
+
 ### Example programs
+
 ```
 monke work max want number a and number b give number monke do
-  if a is greater than b monke do
+  monke think a is greater than b monke do
     give a
-  else monke do
+  monke change mind
     give b
-  monke done
+  monke thinked
 monke done
 ```
 
 ```
 monke work concat want string first and string second give string monke do
-  <body>
+  give first plus second
 monke done
 ```
 
