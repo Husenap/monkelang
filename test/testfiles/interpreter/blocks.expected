@@ -1,0 +1,9 @@
+a: inner a
+b: outer b
+c: global c
+a: outer a
+b: outer b
+c: global c
+a: global a
+b: global b
+c: global c

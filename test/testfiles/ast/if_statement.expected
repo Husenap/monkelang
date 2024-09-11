@@ -63,3 +63,22 @@ IfStmt:
   Body: 
     PrintStmt: 
       NumberExpr: 9999
+IfStmt: 
+  Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 5
+  Body: 
+    PrintStmt: 
+      StringExpr: "too many bananas"
+  Else-If Branch: 
+    Condition: 
+    BinOpExpr: ==
+      IdUseExpr: bananas
+      NumberExpr: 5
+    Body: 
+    PrintStmt: 
+      StringExpr: "perfect amount of bananas"
+  Else Branch: 
+    PrintStmt: 
+      StringExpr: "need more bananas"

@@ -1,0 +1,7 @@
+monke say 1
+monke say 2
+monke say true
+monke say false
+monke say "Hello, World!"
+monke say "This\tis a \"string\"\nincluding some escape sequences"
+monke say "       World!\rHello,"

@@ -1,0 +1,26 @@
+monke has number bananas is 42
+monke say "monke has " + bananas + " bananas."
+
+monke has number bananas
+monke say "monke has " + bananas + " bananas."
+
+bananas is 5
+monke say "monke has " + bananas + " bananas."
+
+monke has number a = 3
+monke has number b = 6
+monke say a + b
+
+monke has number a is 1
+monke say "a is " + a
+a is 2
+monke say "a is " + a
+monke say a is 3
+
+
+monke has number a
+monke has number b
+monke has number c
+a is b is c is 42
+monke say a + b + c
+

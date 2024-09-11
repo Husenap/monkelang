@@ -1,0 +1,22 @@
+monke has string a is "global a"
+monke has string b is "global b"
+monke has string c is "global c"
+
+monke do
+  monke has string a is "outer a"
+  monke has string b is "outer b"
+  monke do
+    monke has string a is "inner a"
+    monke say "a: " + a
+    monke say "b: " + b
+    monke say "c: " + c
+  monke done
+  monke say "a: " + a
+  monke say "b: " + b
+  monke say "c: " + c
+monke done
+  
+monke say "a: " + a
+monke say "b: " + b
+monke say "c: " + c
+

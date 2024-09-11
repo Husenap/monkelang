@@ -1,0 +1,34 @@
+monke work gcd1 want number a and number b give number monke do
+  while a is not equal to b monke do
+    monke think a is greater than b monke do
+      a is a minus b
+    monke change mind
+      b is b minus a
+    monke thinked
+  monke done
+  give a
+monke done
+
+monke work gcd2 want number a and number b give number monke do
+  monke think b is equal to 0 monke do
+    give a
+  monke thinked
+  give monke do gcd2 with b and a modulo b monke done
+monke done
+
+// Test two different GCD algorithms and print the results.
+// The results should be equal when both inputs are positive.
+monke work main give number monke do
+  monke want number a
+  monke want number b
+  monke say "a is: " + a
+  monke say "b is: " + b
+  monke say "gcd1(a,b): " + monke do gcd1 with a and b monke done
+  monke say "gcd2(a,b): " + monke do gcd2 with a and b monke done
+  monke has number diff is monke do gcd1 with a and b monke done minus monke do gcd2 with a and b monke done
+  monke say diff
+  give 0
+monke done
+
+monke do main monke done
+

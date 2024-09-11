@@ -23,18 +23,18 @@ void test_result(std::filesystem::path filepath) {
   }
 }
 
-class ParserValid : public ::testing::TestWithParam<std::filesystem::path> {};
+class TestValidSyntax : public ::testing::TestWithParam<std::filesystem::path> {};
 
-TEST_P(ParserValid, TestFileProcessing) {
+TEST_P(TestValidSyntax, TestFileProcessing) {
   test_result<false>(GetParam());
 }
 
-INSTANTIATE_TEST_SUITE_P(ValidFiles, ParserValid, ::testing::ValuesIn(GetTestFiles("testfiles/parser", ".valid")));
+INSTANTIATE_TEST_SUITE_P(ValidFiles, TestValidSyntax, ::testing::ValuesIn(GetTestFiles("testfiles/parser", ".valid")));
 
-class ParserError : public ::testing::TestWithParam<std::filesystem::path> {};
+class TestSyntaxError : public ::testing::TestWithParam<std::filesystem::path> {};
 
-TEST_P(ParserError, TestFileProcessing) {
+TEST_P(TestSyntaxError, TestFileProcessing) {
   test_result<true>(GetParam());
 }
 
-INSTANTIATE_TEST_SUITE_P(ErrorFiles, ParserError, ::testing::ValuesIn(GetTestFiles("testfiles/parser", ".error")));
+INSTANTIATE_TEST_SUITE_P(ErrorFiles, TestSyntaxError, ::testing::ValuesIn(GetTestFiles("testfiles/parser", ".error")));

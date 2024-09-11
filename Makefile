@@ -6,7 +6,10 @@ install-prerequisites:
 	apt-get install flex bison
 
 gen: 
-	cmake . -Bbuild -GNinja
+	cmake . -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug
+
+gen-release: 
+	cmake . -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Release
 
 build: 
 	cmake --build build/

@@ -1,3 +1,13 @@
+PrintStmt: 
+  BinOpExpr: +
+    NumberExpr: 1
+    NumberExpr: 2
+PrintStmt: 
+  BinOpExpr: +
+    BinOpExpr: -
+      NumberExpr: 1
+      NumberExpr: 2
+    NumberExpr: 3
 ExprStmt: 
   BinOpExpr: ==
     NumberExpr: 2
