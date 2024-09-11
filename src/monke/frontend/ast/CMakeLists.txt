@@ -1,1 +1,1 @@
-add_library(monke_ast "Expr.cpp" "Stmt.cpp")
+add_library(monke_ast INTERFACE)

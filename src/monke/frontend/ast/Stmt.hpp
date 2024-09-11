@@ -4,11 +4,37 @@
 #include <vector>
 
 #include "Expr.hpp"
-#include "Node.hpp"
 
 namespace monke {
 
-struct Stmt : Node {};
+struct IdDeclStmt;
+struct StmtList;
+struct FuncDeclStmt;
+struct BlockStmt;
+struct WhileStmt;
+struct IfStmt;
+struct ReadStmt;
+struct PrintStmt;
+struct ReturnStmt;
+struct ExprStmt;
+
+struct StmtVisitor {
+  virtual void visit(IdDeclStmt&)   = 0;
+  virtual void visit(StmtList&)     = 0;
+  virtual void visit(FuncDeclStmt&) = 0;
+  virtual void visit(BlockStmt&)    = 0;
+  virtual void visit(WhileStmt&)    = 0;
+  virtual void visit(IfStmt&)       = 0;
+  virtual void visit(ReadStmt&)     = 0;
+  virtual void visit(PrintStmt&)    = 0;
+  virtual void visit(ReturnStmt&)   = 0;
+  virtual void visit(ExprStmt&)     = 0;
+};
+
+struct Stmt {
+  virtual ~Stmt()                    = default;
+  virtual void visit(StmtVisitor& v) = 0;
+};
 
 struct IdDeclStmt : Stmt {
   IdDeclStmt(std::string type, std::string id, std::unique_ptr<Expr> value)
@@ -17,7 +43,9 @@ struct IdDeclStmt : Stmt {
   std::string           id{};
   std::unique_ptr<Expr> value;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct StmtList : Stmt {
@@ -31,7 +59,9 @@ struct StmtList : Stmt {
     stmts.push_back(std::move(stmt));
   }
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct FuncDeclStmt : Stmt {
@@ -47,21 +77,27 @@ struct FuncDeclStmt : Stmt {
   std::string                        ret_type{};
   std::unique_ptr<Stmt>              body{};
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct ExprStmt : Stmt {
   ExprStmt(std::unique_ptr<Expr> expr) : expr(std::move(expr)) {}
   std::unique_ptr<Expr> expr;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct BlockStmt : Stmt {
   BlockStmt(std::unique_ptr<Stmt> body) : body(std::move(body)) {}
   std::unique_ptr<Stmt> body;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct WhileStmt : Stmt {
@@ -69,7 +105,9 @@ struct WhileStmt : Stmt {
   std::unique_ptr<Expr> cond;
   std::unique_ptr<Stmt> body;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct IfStmt : Stmt {
@@ -86,7 +124,10 @@ struct IfStmt : Stmt {
   std::vector<std::pair<std::unique_ptr<Expr>, std::unique_ptr<Stmt>>> elseif_branches;
   std::unique_ptr<Stmt>                                                else_body;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+    ;
+  }
 };
 
 struct ReadStmt : Stmt {
@@ -94,21 +135,27 @@ struct ReadStmt : Stmt {
   std::string type;
   std::string id;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct PrintStmt : Stmt {
   PrintStmt(std::unique_ptr<Expr> value) : value(std::move(value)) {}
   std::unique_ptr<Expr> value;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct ReturnStmt : Stmt {
   ReturnStmt(std::unique_ptr<Expr> value) : value(std::move(value)) {}
   std::unique_ptr<Expr> value;
 
-  void visit(AstVisitor& v) override;
+  void visit(StmtVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 } // namespace monke

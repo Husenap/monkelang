@@ -4,11 +4,10 @@
 
 #include "Expr.hpp"
 #include "Stmt.hpp"
-#include "monke/frontend/ast/AstVisitor.hpp"
 
 namespace monke {
 
-struct AstDumpTree : public AstVisitor {
+struct AstDumpTree : public ExprVisitor, public StmtVisitor {
   std::ostream& out;
   AstDumpTree(std::ostream& out = std::cout) : out(out) {}
 

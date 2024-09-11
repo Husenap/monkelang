@@ -4,18 +4,35 @@
 #include <string>
 #include <vector>
 
-#include "Node.hpp"
-
 namespace monke {
 
-struct Expr : Node {};
+struct FuncCallExpr;
+struct AssignmentExpr;
+struct IdUseExpr;
+struct BinOpExpr;
+struct NumberExpr;
+
+struct ExprVisitor {
+  virtual void visit(FuncCallExpr&)   = 0;
+  virtual void visit(AssignmentExpr&) = 0;
+  virtual void visit(IdUseExpr&)      = 0;
+  virtual void visit(BinOpExpr&)      = 0;
+  virtual void visit(NumberExpr&)     = 0;
+};
+
+struct Expr {
+  virtual ~Expr()                    = default;
+  virtual void visit(ExprVisitor& v) = 0;
+};
 
 struct NumberExpr : Expr {
   NumberExpr(double value) : value(value) {}
 
   double value{};
 
-  void visit(AstVisitor& v) override;
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct IdUseExpr : Expr {
@@ -23,7 +40,9 @@ struct IdUseExpr : Expr {
 
   std::string id{};
 
-  void visit(AstVisitor& v) override;
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct AssignmentExpr : Expr {
@@ -31,7 +50,9 @@ struct AssignmentExpr : Expr {
   std::string           id;
   std::unique_ptr<Expr> value;
 
-  void visit(AstVisitor& v) override;
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 struct FuncCallExpr : Expr {
@@ -40,7 +61,9 @@ struct FuncCallExpr : Expr {
   std::string                        func_name{};
   std::vector<std::unique_ptr<Expr>> args{};
 
-  void visit(AstVisitor& v) override;
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 enum BinOp {
@@ -65,7 +88,9 @@ struct BinOpExpr : Expr {
   std::unique_ptr<Expr> lhs;
   std::unique_ptr<Expr> rhs;
 
-  void visit(AstVisitor& v) override;
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
 };
 
 } // namespace monke
