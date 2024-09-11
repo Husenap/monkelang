@@ -1,0 +1,23 @@
+monke say 1+2
+monke say 1-2+3
+monke say 1.3-2.2+3.5
+monke say 2+3*4
+monke say 4/2
+monke say 4%3
+monke say 2==2
+monke say 2==1
+monke say 2!=2
+monke say 2!=1
+monke say 1<2
+monke say 2<2
+monke say 1<=2
+monke say 2<=2
+monke say 3<=2
+monke say 2>2
+monke say 3>2
+monke say 1>=2
+monke say 2>=2
+monke say 3>=2
+monke say "Hello, " + "World"
+monke say "I am " + 26 + " years old."
+

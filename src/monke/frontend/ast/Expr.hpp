@@ -11,6 +11,8 @@ struct AssignmentExpr;
 struct IdUseExpr;
 struct BinOpExpr;
 struct NumberExpr;
+struct BooleanExpr;
+struct StringExpr;
 
 struct ExprVisitor {
   virtual void visit(FuncCallExpr&)   = 0;
@@ -18,6 +20,8 @@ struct ExprVisitor {
   virtual void visit(IdUseExpr&)      = 0;
   virtual void visit(BinOpExpr&)      = 0;
   virtual void visit(NumberExpr&)     = 0;
+  virtual void visit(BooleanExpr&)    = 0;
+  virtual void visit(StringExpr&)     = 0;
 };
 
 struct Expr {
@@ -29,6 +33,24 @@ struct NumberExpr : Expr {
   NumberExpr(double value) : value(value) {}
 
   double value{};
+
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
+};
+
+struct BooleanExpr : Expr {
+  BooleanExpr(bool value) : value(value) {}
+  bool value{};
+
+  void visit(ExprVisitor& v) override {
+    v.visit(*this);
+  }
+};
+
+struct StringExpr : Expr {
+  StringExpr(std::string value) : value(value) {}
+  std::string value{};
 
   void visit(ExprVisitor& v) override {
     v.visit(*this);

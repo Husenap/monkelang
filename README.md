@@ -24,7 +24,7 @@ monke done
 ```
 monke think bananas is greater than 5 monke do
   monke say "too many bananas"
-monke think again bananas is 5 monke do
+monke think again bananas is equal to 5 monke do
   monke say "perfect amount of bananas"
 monke change mind
   monke say "need more bananas"

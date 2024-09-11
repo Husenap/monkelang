@@ -8,9 +8,9 @@
 #include "monke/frontend/ast/AstDumpTree.hpp"
 #include "util.hpp"
 
-class ParserAst : public ::testing::TestWithParam<std::filesystem::path> {};
+class TestAst : public ::testing::TestWithParam<std::filesystem::path> {};
 
-TEST_P(ParserAst, TestFileProcessing) {
+TEST_P(TestAst, TestFileProcessing) {
   auto in_filepath  = GetParam();
   auto out_filepath = in_filepath;
   out_filepath.replace_extension("out");
@@ -33,4 +33,4 @@ TEST_P(ParserAst, TestFileProcessing) {
   ASSERT_EQ(ReadFile(out_filepath), ReadFile(expected_filepath));
 }
 
-INSTANTIATE_TEST_SUITE_P(AstFiles, ParserAst, ::testing::ValuesIn(GetTestFiles("testfiles/ast", ".in")));
+INSTANTIATE_TEST_SUITE_P(AstFiles, TestAst, ::testing::ValuesIn(GetTestFiles("testfiles/ast", ".in")));

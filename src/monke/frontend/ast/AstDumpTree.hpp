@@ -140,6 +140,12 @@ struct AstDumpTree : public ExprVisitor, public StmtVisitor {
   void visit(NumberExpr& expr) override {
     output("NumberExpr") << expr.value << std::endl;
   }
+  void visit(BooleanExpr& expr) override {
+    output("BooleanExpr") << (expr.value ? "true" : "false") << std::endl;
+  }
+  void visit(StringExpr& expr) override {
+    output("StringExpr") << expr.value << std::endl;
+  }
   void visit(BinOpExpr& expr) override {
     output("BinOpExpr") << BinOpSymbol[expr.op] << std::endl;
     indent();

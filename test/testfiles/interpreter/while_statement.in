@@ -1,0 +1,14 @@
+monke has number bananas = 0
+
+while bananas <= 10 monke do
+  monke think bananas > 5 monke do
+    monke say bananas + " bananas is too many bananas!"
+  monke think again bananas == 5 monke do
+    monke say "perfect amount of bananas 😍"
+  monke change mind
+    monke say "only " + bananas + " bananas, need more bananas"
+  monke thinked
+
+  bananas = bananas + 1
+monke done
+
