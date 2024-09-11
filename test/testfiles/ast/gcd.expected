@@ -45,7 +45,9 @@ FuncDeclStmt: name:gcd2 return:number
           ReturnStmt: 
             IdUseExpr: a
       ReturnStmt: 
-        FuncCallExpr: gcd2
+        FuncCallExpr: 
+          Callee: 
+            IdUseExpr: gcd2
           Args: 
             IdUseExpr: b
             BinOpExpr: %
@@ -58,22 +60,30 @@ FuncDeclStmt: name:main return:number
       ReadStmt: type:number id:a
       ReadStmt: type:number id:b
       PrintStmt: 
-        FuncCallExpr: gcd1
+        FuncCallExpr: 
+          Callee: 
+            IdUseExpr: gcd1
           Args: 
             IdUseExpr: a
             IdUseExpr: b
       PrintStmt: 
-        FuncCallExpr: gcd2
+        FuncCallExpr: 
+          Callee: 
+            IdUseExpr: gcd2
           Args: 
             IdUseExpr: a
             IdUseExpr: b
       IdDeclStmt: id:diff type:number
         BinOpExpr: -
-          FuncCallExpr: gcd1
+          FuncCallExpr: 
+            Callee: 
+              IdUseExpr: gcd1
             Args: 
               IdUseExpr: a
               IdUseExpr: b
-          FuncCallExpr: gcd2
+          FuncCallExpr: 
+            Callee: 
+              IdUseExpr: gcd2
             Args: 
               IdUseExpr: a
               IdUseExpr: b

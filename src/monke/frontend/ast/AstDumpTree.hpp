@@ -118,8 +118,13 @@ struct AstDumpTree : public ExprVisitor, public StmtVisitor {
   }
 
   void visit(FuncCallExpr& expr) override {
-    output("FuncCallExpr") << expr.func_name << std::endl;
+    output("FuncCallExpr") << std::endl;
     indent();
+
+    output("Callee") << std::endl;
+    indent();
+    expr.callee->visit(*this);
+    dedent();
 
     output("Args") << std::endl;
     indent();

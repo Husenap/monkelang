@@ -65,17 +65,17 @@ struct StmtList : Stmt {
 };
 
 struct FuncDeclStmt : Stmt {
-  FuncDeclStmt(std::string                        func_name,
-               std::vector<std::unique_ptr<Stmt>> params,
-               std::string                        ret_type,
-               std::unique_ptr<Stmt>              body)
+  FuncDeclStmt(std::string                              func_name,
+               std::vector<std::unique_ptr<IdDeclStmt>> params,
+               std::string                              ret_type,
+               std::unique_ptr<Stmt>                    body)
       : func_name(func_name), params(std::move(params)), ret_type(ret_type), body(std::move(body)) {}
   FuncDeclStmt(std::string func_name, std::string ret_type, std::unique_ptr<Stmt> body)
       : func_name(func_name), ret_type(ret_type), body(std::move(body)) {}
-  std::string                        func_name{};
-  std::vector<std::unique_ptr<Stmt>> params{};
-  std::string                        ret_type{};
-  std::unique_ptr<Stmt>              body{};
+  std::string                              func_name{};
+  std::vector<std::unique_ptr<IdDeclStmt>> params{};
+  std::string                              ret_type{};
+  std::unique_ptr<Stmt>                    body{};
 
   void visit(StmtVisitor& v) override {
     v.visit(*this);

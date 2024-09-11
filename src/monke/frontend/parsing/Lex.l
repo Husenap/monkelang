@@ -21,7 +21,7 @@
 %x COMMENT
 
 number                    (([1-9][0-9]*)|0)\.?[0-9]*
-identifier                ([_a-zA-Z][-a-zA-Z0-9]*)
+identifier                ([_a-zA-Z][_a-zA-Z0-9]*)
 string                    \"(\\.|[^\\"])*\"	
  
 %%

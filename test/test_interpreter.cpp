@@ -16,9 +16,12 @@ TEST_P(TestInterpreter, TestFileProcessing) {
   out_filepath.replace_extension("out");
   auto expected_filepath = in_filepath;
   expected_filepath.replace_extension("expected");
+  auto read_filepath = in_filepath;
+  read_filepath.replace_extension("read");
 
   std::ifstream in_file(in_filepath);
   std::ofstream out_file(out_filepath);
+  std::ifstream read_file(read_filepath);
 
   monke::LexContext   ctx;
   monke::SourceModule sm;
@@ -27,7 +30,7 @@ TEST_P(TestInterpreter, TestFileProcessing) {
 
   ASSERT_EQ(parser.parse(), 0);
 
-  monke::Interpreter interpreter(out_file);
+  monke::Interpreter interpreter(out_file, read_file);
   sm.visit(interpreter);
 
   ASSERT_EQ(ReadFile(out_filepath), ReadFile(expected_filepath));

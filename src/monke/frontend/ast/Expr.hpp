@@ -78,9 +78,9 @@ struct AssignmentExpr : Expr {
 };
 
 struct FuncCallExpr : Expr {
-  FuncCallExpr(std::string func_name, std::vector<std::unique_ptr<Expr>> args = {})
-      : func_name(func_name), args(std::move(args)) {}
-  std::string                        func_name{};
+  FuncCallExpr(std::unique_ptr<Expr> callee, std::vector<std::unique_ptr<Expr>> args = {})
+      : callee(std::move(callee)), args(std::move(args)) {}
+  std::unique_ptr<Expr>              callee{};
   std::vector<std::unique_ptr<Expr>> args{};
 
   void visit(ExprVisitor& v) override {

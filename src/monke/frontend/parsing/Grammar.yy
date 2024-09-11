@@ -65,8 +65,8 @@ void monke::Parser::error(const location &loc, const std::string &error) {
 
 %type <std::unique_ptr<StmtList>> declaration_list;
 %type <std::unique_ptr<Stmt>> declaration;
-%type <std::unique_ptr<Stmt>> variable_declaration;
-%type <std::vector<std::unique_ptr<Stmt>>> parameter_list;
+%type <std::unique_ptr<IdDeclStmt>> variable_declaration;
+%type <std::vector<std::unique_ptr<IdDeclStmt>>> parameter_list;
 %type <std::unique_ptr<Stmt>> statement;
 %type <std::unique_ptr<Stmt>> block;
 %type <std::unique_ptr<Stmt>> if_statement;
@@ -198,8 +198,8 @@ factor
   ;
 
 call
-  : MONKE DO IDENTIFIER[func_name] MONKE DONE { $$ = std::make_unique<FuncCallExpr>($func_name); }
-  | MONKE DO IDENTIFIER[func_name] WITH argument_list[args] MONKE DONE { $$ = std::make_unique<FuncCallExpr>($func_name, std::move($args)); }
+  : MONKE DO primary[callee] MONKE DONE { $$ = std::make_unique<FuncCallExpr>(std::move($callee)); }
+  | MONKE DO primary[callee] WITH argument_list[args] MONKE DONE { $$ = std::make_unique<FuncCallExpr>(std::move($callee), std::move($args)); }
   | primary { $$ = std::move($1); }
   ;
 

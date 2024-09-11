@@ -1,6 +1,5 @@
 #pragma once
 
-#include <memory>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
@@ -25,7 +24,7 @@ public:
       if (enclosing) {
         return enclosing->get(name);
       }
-      throw std::runtime_error(std::string("Undefined variable '") + name + '"');
+      throw std::runtime_error(std::string("Undefined variable '") + name + "'");
     }
     return it->second;
   }
@@ -36,7 +35,7 @@ public:
         enclosing->assign(name, value);
         return;
       }
-      throw std::runtime_error(std::string("Undefined variable '") + name + '"');
+      throw std::runtime_error(std::string("Undefined variable '") + name + "'");
     }
     it->second = value;
   }
