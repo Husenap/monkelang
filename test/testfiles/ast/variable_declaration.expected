@@ -1,0 +1,4 @@
+IdDeclStmt: id:x type:number
+  NumberExpr: 42
+IdDeclStmt: id:y type:number
+  NumberExpr: 1337

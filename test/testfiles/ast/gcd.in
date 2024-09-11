@@ -1,0 +1,67 @@
+monke note
+int gcd1(int a, int b) {
+    while (a != b) {
+        if (a > b) {
+            a = a - b;
+        } else {
+            b = b - a;
+        }
+    }
+    return a;
+}
+monke noted
+
+monke work gcd1 want number a and number b give number monke do
+  while a is not equal to b monke do
+    monke think a is greater than b monke do
+      a is a minus b
+    monke change mind
+      b is b minus a
+    monke thinked
+  monke done
+  give a
+monke done
+
+
+monke note
+int gcd2(int a, int b) {
+    if (b == 0) {
+        return a;
+    }
+    return gcd2(b, a % b);
+}
+monke noted
+
+monke work gcd2 want number a and number b give number monke do
+  monke think b is equal to 0 monke do
+    give a
+  monke thinked
+  give monke do gcd2 with b and a modulo b monke done
+monke done
+
+monke note
+int main() {
+    int a;
+    int b;
+    a = read();
+    b = read();
+    print(gcd1(a, b));
+    print(gcd2(a, b));
+    int diff = gcd1(a, b) - gcd2(a, b);
+    print(diff);
+    return 0;
+}
+monke noted
+
+// Test two different GCD algorithms and print the results.
+// The results should be equal when both inputs are positive.
+monke work main give number monke do
+  monke want number a
+  monke want number b
+  monke say monke do gcd1 with a and b monke done
+  monke say monke do gcd2 with a and b monke done
+  monke has number diff is monke do gcd1 with a and b monke done minus monke do gcd2 with a and b monke done
+  monke say diff
+  give 0
+monke done
+

@@ -1,0 +1,7 @@
+FuncDeclStmt: name:main return:number
+  Params: 
+  Body: 
+    BlockStmt: 
+      ReadStmt: type:number id:age
+      PrintStmt: 
+        IdUseExpr: age

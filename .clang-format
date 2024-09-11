@@ -1,0 +1,29 @@
+---
+BasedOnStyle: LLVM
+IndentWidth: 2
+UseTab: Never
+ColumnLimit: 120
+---
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+AccessModifierOffset: -2
+
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+BreakBeforeTernaryOperators: true
+BinPackParameters: false
+BinPackArguments: false
+PackConstructorInitializers: NextLine
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlwaysBreakTemplateDeclarations: Yes
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^<.*\..*>'
+    Priority: 2
+  - Regex: '^<.*>'
+    Priority: 1
+  - Regex: '".*"'
+    Priority: 3

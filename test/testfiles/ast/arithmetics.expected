@@ -1,0 +1,72 @@
+ExprStmt: 
+  BinOpExpr: ==
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: !=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: <
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: <=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: >
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: >=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: -
+    BinOpExpr: +
+      NumberExpr: 2
+      NumberExpr: 3
+    NumberExpr: 4
+ExprStmt: 
+  BinOpExpr: +
+    NumberExpr: 1
+    BinOpExpr: *
+      NumberExpr: 2
+      NumberExpr: 3
+ExprStmt: 
+  BinOpExpr: ==
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: !=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: <
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: <=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: >
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: >=
+    NumberExpr: 2
+    NumberExpr: 2
+ExprStmt: 
+  BinOpExpr: -
+    BinOpExpr: +
+      NumberExpr: 2
+      NumberExpr: 3
+    NumberExpr: 4
+ExprStmt: 
+  BinOpExpr: +
+    NumberExpr: 1
+    BinOpExpr: *
+      NumberExpr: 2
+      NumberExpr: 3

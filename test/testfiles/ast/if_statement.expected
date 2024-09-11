@@ -1,0 +1,65 @@
+IfStmt: 
+  Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 10
+  Body: 
+    PrintStmt: 
+      NumberExpr: 9999
+  Else-If Branch: 
+    Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 5
+    Body: 
+    PrintStmt: 
+      NumberExpr: 10
+  Else-If Branch: 
+    Condition: 
+    BinOpExpr: ==
+      IdUseExpr: bananas
+      NumberExpr: 5
+    Body: 
+    PrintStmt: 
+      NumberExpr: 5
+  Else Branch: 
+    PrintStmt: 
+      NumberExpr: 0
+IfStmt: 
+  Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 10
+  Body: 
+    PrintStmt: 
+      NumberExpr: 9999
+  Else-If Branch: 
+    Condition: 
+    BinOpExpr: ==
+      IdUseExpr: bananas
+      NumberExpr: 5
+    Body: 
+    PrintStmt: 
+      NumberExpr: 5
+  Else Branch: 
+    PrintStmt: 
+      NumberExpr: 0
+IfStmt: 
+  Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 10
+  Body: 
+    PrintStmt: 
+      NumberExpr: 9999
+  Else Branch: 
+    PrintStmt: 
+      NumberExpr: 0
+IfStmt: 
+  Condition: 
+    BinOpExpr: >
+      IdUseExpr: bananas
+      NumberExpr: 10
+  Body: 
+    PrintStmt: 
+      NumberExpr: 9999

@@ -1,10 +1,8 @@
 # monkelang
 
-## monke also want do coding so monke need language to code monke code in
+## monke work coding want string language is "monkelang" give string monke do give "banana" monke done
 
 ## Language features
-
-This is WIP
 
 ### Variable declarations
 ```
@@ -14,28 +12,64 @@ monke has array of number a is [2, 5]
 ```
 
 ### Flow control
+
+#### While loop
 ```
-if <cond> monke do <a> else monke do <b>
-while <cond> monke do <a>
+while <cond> monke do
+    <body>
+monke done
+```
+
+#### If statement
+```
+monke think bananas is greater than 5 monke do
+  monke say "too many bananas"
+monke think again bananas is 5 monke do
+  monke say "perfect amount of bananas"
+monke change mind
+  monke say "need more bananas"
+monke thinked
 ```
 
 ### String interpolation and I/O
 ```
-monke read number a
-monke say "you is {a} old"
+monke want number age
+monke say "you is {age} old"
 ```
 
 ### Function declaration
 ```
-monke do concat want string first and string second give string do give first plus second
+monke work <func_name> [want <param {and param}>] give <return_type> monke do
+  <body>
+monke done
 ```
 
-### Example program
+### Comments
 ```
-monke do max want number a and number b give number do
-  if a is greater than b monke do
+// Supports standard comments
+```
+```
+monke note
+also supports
+multiline comments
+monke noted
+```
+
+### Example programs
+
+```
+monke work max want number a and number b give number monke do
+  monke think a is greater than b monke do
     give a
-  else monke do
+  monke change mind
     give b
+  monke thinked
+monke done
+```
+
+```
+monke work concat want string first and string second give string monke do
+  give first plus second
+monke done
 ```
 

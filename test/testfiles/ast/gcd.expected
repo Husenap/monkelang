@@ -1,0 +1,83 @@
+FuncDeclStmt: name:gcd1 return:number
+  Params: 
+    IdDeclStmt: id:a type:number
+    IdDeclStmt: id:b type:number
+  Body: 
+    BlockStmt: 
+      WhileStmt: 
+        Cond: 
+          BinOpExpr: !=
+            IdUseExpr: a
+            IdUseExpr: b
+        Body: 
+          BlockStmt: 
+            IfStmt: 
+              Condition: 
+                BinOpExpr: >
+                  IdUseExpr: a
+                  IdUseExpr: b
+              Body: 
+                ExprStmt: 
+                  AssignmentExpr: a
+                    BinOpExpr: -
+                      IdUseExpr: a
+                      IdUseExpr: b
+              Else Branch: 
+                ExprStmt: 
+                  AssignmentExpr: b
+                    BinOpExpr: -
+                      IdUseExpr: b
+                      IdUseExpr: a
+      ReturnStmt: 
+        IdUseExpr: a
+FuncDeclStmt: name:gcd2 return:number
+  Params: 
+    IdDeclStmt: id:a type:number
+    IdDeclStmt: id:b type:number
+  Body: 
+    BlockStmt: 
+      IfStmt: 
+        Condition: 
+          BinOpExpr: ==
+            IdUseExpr: b
+            NumberExpr: 0
+        Body: 
+          ReturnStmt: 
+            IdUseExpr: a
+      ReturnStmt: 
+        FuncCallExpr: gcd2
+          Args: 
+            IdUseExpr: b
+            BinOpExpr: %
+              IdUseExpr: a
+              IdUseExpr: b
+FuncDeclStmt: name:main return:number
+  Params: 
+  Body: 
+    BlockStmt: 
+      ReadStmt: type:number id:a
+      ReadStmt: type:number id:b
+      PrintStmt: 
+        FuncCallExpr: gcd1
+          Args: 
+            IdUseExpr: a
+            IdUseExpr: b
+      PrintStmt: 
+        FuncCallExpr: gcd2
+          Args: 
+            IdUseExpr: a
+            IdUseExpr: b
+      IdDeclStmt: id:diff type:number
+        BinOpExpr: -
+          FuncCallExpr: gcd1
+            Args: 
+              IdUseExpr: a
+              IdUseExpr: b
+          FuncCallExpr: gcd2
+            Args: 
+              IdUseExpr: a
+              IdUseExpr: b
+      PrintStmt: 
+        IdUseExpr: diff
+      ReturnStmt: 
+        NumberExpr: 0
